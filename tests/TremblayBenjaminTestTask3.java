@@ -3,12 +3,9 @@ Verification Project Task 3
 Author: Benjamin Tremblay
 Date: March 23rd, 2022
 */
-
 import org.junit.jupiter.api.Test;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class TremblayBenjaminTestTask3 {
