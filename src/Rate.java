@@ -103,6 +103,14 @@ public class Rate {
                 charge = BigDecimal.valueOf(4);
             }
         }
+        else if (this.kind == CarParkKind.STUDENT){
+            if(charge.compareTo(BigDecimal.valueOf(5.5)) > 0){
+                BigDecimal amtAbove = charge.subtract(BigDecimal.valueOf(5.5));
+                // Subtract 25% of amount above 5.50
+                charge = charge.subtract(amtAbove.divide(BigDecimal.valueOf(4)))
+                        .setScale(2, RoundingMode.CEILING);
+            }
+        }
         return charge;
     }
 }
