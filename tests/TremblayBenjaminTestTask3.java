@@ -455,4 +455,21 @@ class TremblayBenjaminTestTask3 {
         assertThrows(IllegalArgumentException.class, () ->
                 new Rate(CarParkKind.VISITOR,normalRate,reducedRate,reducedPeriods,normalPeriods));
     }
+    /*-------------------------------------------------------------------------------------------------
+    -------------------------------------- Task 3 TDD Expanded Tests ----------------------------------
+    -------------------------------------------------------------------------------------------------*/
+    @Test
+    public void calculateVisitorCarParkKindRate(){
+        ArrayList<Period> normalPeriods = new ArrayList<>();
+        ArrayList<Period> reducedPeriods = new ArrayList<>();
+        normalPeriods.add(new Period(7,10));
+        normalPeriods.add(new Period (17,20));
+        reducedPeriods.add(new Period(10,17));
+        reducedPeriods.add(new Period(20,24));
+
+        Rate r = new Rate(CarParkKind.VISITOR, new BigDecimal(5), new BigDecimal(2),
+                reducedPeriods, normalPeriods);
+
+        assertEquals(BigDecimal.valueOf(4.5), r.calculate(new Period(0,12)));
+    }
 }
