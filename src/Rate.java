@@ -39,8 +39,8 @@ public class Rate {
 
     /**
      * Checks if two collections of periods are valid together
-     * @param periods1
-     * @param periods2
+     * @param periods1 the first collection to check for multi collection overlap
+     * @param periods2 the second collection to check for multi collection overlap
      * @return true if the two collections of periods are valid together
      */
     private boolean isValidPeriods(ArrayList<Period> periods1, ArrayList<Period> periods2) {
