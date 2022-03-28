@@ -54,7 +54,7 @@ public class Rate {
     }
 
     /**
-     * checks if a collection of periods is valid
+     * Checks if a collection of periods is valid
      * @param list the collection of periods to check
      * @return true if the periods do not overlap
      */
@@ -74,7 +74,7 @@ public class Rate {
     }
 
     /**
-     * checks if a period is a valid addition to a collection of periods
+     * Checks if a period is a valid addition to a collection of periods
      * @param period the Period addition
      * @param list the collection of periods to check
      * @return true if the period does not overlap in the collection of periods
@@ -88,6 +88,12 @@ public class Rate {
         }
         return isValid;
     }
+
+    /**
+     * Calculates the charge to be paid
+     * @param periodStay the Period of stay in the car park
+     * @return the calculated charge fee as a BigDecimal
+     */
     public BigDecimal calculate(Period periodStay) {
         int normalRateHours = periodStay.occurences(normal);
         int reducedRateHours = periodStay.occurences(reduced);
