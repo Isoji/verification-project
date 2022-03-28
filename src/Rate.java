@@ -6,8 +6,8 @@ public class Rate {
     private CarParkKind kind;
     private BigDecimal hourlyNormalRate;
     private BigDecimal hourlyReducedRate;
-    private ArrayList<Period> reduced = new ArrayList<>();
-    private ArrayList<Period> normal = new ArrayList<>();
+    private ArrayList<Period> reduced;
+    private ArrayList<Period> normal;
 
     public Rate(CarParkKind kind, BigDecimal normalRate, BigDecimal reducedRate, ArrayList<Period> reducedPeriods
             , ArrayList<Period> normalPeriods) {
@@ -60,7 +60,6 @@ public class Rate {
     private Boolean isValidPeriods(ArrayList<Period> list) {
         Boolean isValid = true;
         if (list.size() >= 2) {
-            Period secondPeriod;
             int i = 0;
             int lastIndex = list.size()-1;
             // If the Period collection is of size 2, only one iteration of the following while loop will occur
