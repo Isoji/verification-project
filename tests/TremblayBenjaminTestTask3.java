@@ -194,7 +194,7 @@ class TremblayBenjaminTestTask3 {
 
         Rate r = new Rate(CarParkKind.STUDENT, new BigDecimal(5), new BigDecimal(2), reducedPeriods, normalPeriods);
 
-        assertEquals(new BigDecimal(10), r.calculate(new Period(12,17)));
+        assertEquals(new BigDecimal("8.88"), r.calculate(new Period(12,17)));
     }
 
     @Test
@@ -222,7 +222,7 @@ class TremblayBenjaminTestTask3 {
 
         Rate r = new Rate(CarParkKind.STUDENT, new BigDecimal(5), new BigDecimal(2), reducedPeriods, normalPeriods);
 
-        assertEquals(new BigDecimal(10), r.calculate(new Period(0,9)));
+        assertEquals(new BigDecimal("8.88"), r.calculate(new Period(0,9)));
     }
 
     @Test
@@ -264,7 +264,7 @@ class TremblayBenjaminTestTask3 {
 
         Rate r = new Rate(CarParkKind.STUDENT, new BigDecimal(5), new BigDecimal(2), reducedPeriods, normalPeriods);
 
-        assertEquals(new BigDecimal(19), r.calculate(new Period(6,12)));
+        assertEquals(new BigDecimal("15.63"), r.calculate(new Period(6,12)));
     }
 
     @Test
@@ -278,7 +278,7 @@ class TremblayBenjaminTestTask3 {
 
         Rate r = new Rate(CarParkKind.STUDENT, new BigDecimal(5), new BigDecimal(2), reducedPeriods, normalPeriods);
 
-        assertEquals(new BigDecimal(18), r.calculate(new Period(18,24)));
+        assertEquals(new BigDecimal("14.88"), r.calculate(new Period(18,24)));
     }
 
     @Test
@@ -334,7 +334,7 @@ class TremblayBenjaminTestTask3 {
 
         Rate r = new Rate(CarParkKind.STUDENT, new BigDecimal(5), new BigDecimal(2), reducedPeriods, normalPeriods);
 
-        assertEquals(new BigDecimal(10), r.calculate(new Period(7,9)));
+        assertEquals(new BigDecimal("8.88"), r.calculate(new Period(7,9))); //
     }
 
     @Test
