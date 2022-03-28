@@ -1,4 +1,5 @@
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -95,7 +96,7 @@ public class Rate {
                 this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
 
         if(this.kind == CarParkKind.VISITOR){
-            charge = charge.subtract(BigDecimal.valueOf(10)).divide(BigDecimal.valueOf(2));
+            charge = charge.subtract(BigDecimal.valueOf(10)).divide(BigDecimal.valueOf(2), 1, RoundingMode.CEILING);
         }
         return charge;
     }
