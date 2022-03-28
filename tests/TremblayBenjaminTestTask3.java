@@ -487,4 +487,19 @@ class TremblayBenjaminTestTask3 {
 
         assertEquals(BigDecimal.valueOf(4), r.calculate(new Period(10,11)));
     }
+
+    @Test
+    public void calculateStudentCarParkKindRate(){
+        ArrayList<Period> normalPeriods = new ArrayList<>();
+        ArrayList<Period> reducedPeriods = new ArrayList<>();
+        normalPeriods.add(new Period(7,10));
+        normalPeriods.add(new Period(17,20));
+        reducedPeriods.add(new Period(10,17));
+        reducedPeriods.add(new Period(20,24));
+
+        Rate r = new Rate(CarParkKind.STUDENT, new BigDecimal(5), new BigDecimal(2), reducedPeriods,
+                normalPeriods);
+
+        assertEquals(BigDecimal.valueOf(19.38), r.calculate(new Period(8,17)));
+    }
 }
