@@ -111,6 +111,12 @@ public class Rate {
                         .setScale(2, RoundingMode.CEILING);
             }
         }
+        else if (this.kind == CarParkKind.STAFF){
+            if(charge.compareTo(BigDecimal.valueOf(16)) > 0){
+                // Sets charge to maximum value of 16
+                charge = BigDecimal.valueOf(16);
+            }
+        }
         return charge;
     }
 }
