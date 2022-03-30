@@ -102,6 +102,6 @@ public class Rate {
         BigDecimal cost = (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
                 this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
 
-        return cost;
+        return rateStrategy.applyRate(cost);
     }
 }
