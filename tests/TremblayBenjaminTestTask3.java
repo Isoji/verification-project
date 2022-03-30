@@ -20,7 +20,7 @@ class TremblayBenjaminTestTask3 {
         BigDecimal normalRate = new BigDecimal(5);
         BigDecimal reducedRate = new BigDecimal(2);
 
-        assertDoesNotThrow(() -> new Rate(CarParkKind.STUDENT,normalRate,reducedRate,reducedPeriods,normalPeriods));
+        assertDoesNotThrow(() -> new Rate(new StudentRate(),normalRate,reducedRate,reducedPeriods,normalPeriods));
     }
 
     @Test
@@ -35,7 +35,7 @@ class TremblayBenjaminTestTask3 {
         BigDecimal reducedRate = new BigDecimal(3);
 
         assertThrows(IllegalArgumentException.class, () ->
-                new Rate(CarParkKind.VISITOR,normalRate,reducedRate,reducedPeriods,normalPeriods));
+                new Rate(new VisitorRate(),normalRate,reducedRate,reducedPeriods,normalPeriods));
     }
 
     @Test
@@ -50,7 +50,7 @@ class TremblayBenjaminTestTask3 {
         BigDecimal reducedRate = new BigDecimal(3);
 
         assertThrows(IllegalArgumentException.class, () ->
-                new Rate(CarParkKind.MANAGEMENT,normalRate,reducedRate,reducedPeriods,normalPeriods));
+                new Rate(new ManagementRate(),normalRate,reducedRate,reducedPeriods,normalPeriods));
     }
 
     @Test
@@ -64,7 +64,7 @@ class TremblayBenjaminTestTask3 {
         BigDecimal normalRate = new BigDecimal(6);
         BigDecimal reducedRate = new BigDecimal(3);
 
-        assertDoesNotThrow(() -> new Rate(CarParkKind.STUDENT,normalRate,reducedRate,reducedPeriods,normalPeriods));
+        assertDoesNotThrow(() -> new Rate(new StudentRate(),normalRate,reducedRate,reducedPeriods,normalPeriods));
     }
 
     @Test
@@ -77,7 +77,7 @@ class TremblayBenjaminTestTask3 {
         BigDecimal normalRate = new BigDecimal(3);
         BigDecimal reducedRate = new BigDecimal(0);
 
-        assertDoesNotThrow(() -> new Rate(CarParkKind.STAFF,normalRate,reducedRate,reducedPeriods,normalPeriods));
+        assertDoesNotThrow(() -> new Rate(new StaffRate(),normalRate,reducedRate,reducedPeriods,normalPeriods));
     }
 
     @Test
@@ -92,7 +92,7 @@ class TremblayBenjaminTestTask3 {
         BigDecimal reducedRate = new BigDecimal(-1);
 
         assertThrows(IllegalArgumentException.class, () ->
-                new Rate(CarParkKind.MANAGEMENT,normalRate,reducedRate,reducedPeriods,normalPeriods));
+                new Rate(new ManagementRate(),normalRate,reducedRate,reducedPeriods,normalPeriods));
     }
 
     @Test
@@ -106,7 +106,7 @@ class TremblayBenjaminTestTask3 {
         BigDecimal normalRate = new BigDecimal(7);
         BigDecimal reducedRate = new BigDecimal(4);
 
-        assertDoesNotThrow(() -> new Rate(CarParkKind.STUDENT,normalRate,reducedRate,reducedPeriods,normalPeriods));
+        assertDoesNotThrow(() -> new Rate(new StudentRate(),normalRate,reducedRate,reducedPeriods,normalPeriods));
     }
 
     @Test
@@ -119,7 +119,7 @@ class TremblayBenjaminTestTask3 {
         BigDecimal normalRate = new BigDecimal(5);
         BigDecimal reducedRate = new BigDecimal(5);
 
-        assertDoesNotThrow(() -> new Rate(CarParkKind.STUDENT,normalRate,reducedRate,reducedPeriods,normalPeriods));
+        assertDoesNotThrow(() -> new Rate(new StudentRate(),normalRate,reducedRate,reducedPeriods,normalPeriods));
     }
 
     @Test
@@ -134,7 +134,7 @@ class TremblayBenjaminTestTask3 {
         BigDecimal reducedRate = new BigDecimal(4);
 
         assertThrows(IllegalArgumentException.class, () ->
-                new Rate(CarParkKind.VISITOR,normalRate,reducedRate,reducedPeriods,normalPeriods));
+                new Rate(new VisitorRate(),normalRate,reducedRate,reducedPeriods,normalPeriods));
     }
 
     @Test
@@ -150,7 +150,7 @@ class TremblayBenjaminTestTask3 {
         BigDecimal reducedRate = new BigDecimal(3);
 
         assertThrows(IllegalArgumentException.class, () ->
-                new Rate(CarParkKind.VISITOR,normalRate,reducedRate,reducedPeriods,normalPeriods));
+                new Rate(new VisitorRate(),normalRate,reducedRate,reducedPeriods,normalPeriods));
     }
 
     @Test
@@ -165,7 +165,7 @@ class TremblayBenjaminTestTask3 {
         BigDecimal reducedRate = new BigDecimal(2);
 
         assertThrows(IllegalArgumentException.class, () ->
-                new Rate(CarParkKind.VISITOR,normalRate,reducedRate,reducedPeriods,normalPeriods));
+                new Rate(new VisitorRate(),normalRate,reducedRate,reducedPeriods,normalPeriods));
     }
 
     @Test
@@ -180,7 +180,7 @@ class TremblayBenjaminTestTask3 {
         BigDecimal reducedRate = new BigDecimal(1);
 
         assertThrows(IllegalArgumentException.class, () ->
-                new Rate(CarParkKind.VISITOR,normalRate,reducedRate,reducedPeriods,normalPeriods));
+                new Rate(new VisitorRate(),normalRate,reducedRate,reducedPeriods,normalPeriods));
     }
 
     @Test
@@ -192,7 +192,7 @@ class TremblayBenjaminTestTask3 {
         reducedPeriods.add(new Period(10,17));
         reducedPeriods.add(new Period(20,24));
 
-        Rate r = new Rate(CarParkKind.STUDENT, new BigDecimal(5), new BigDecimal(2), reducedPeriods, normalPeriods);
+        Rate r = new Rate(new StudentRate(), new BigDecimal(5), new BigDecimal(2), reducedPeriods, normalPeriods);
 
         assertEquals(new BigDecimal("8.88"), r.calculate(new Period(12,17)));
     }
@@ -206,7 +206,7 @@ class TremblayBenjaminTestTask3 {
         reducedPeriods.add(new Period(10,17));
         reducedPeriods.add(new Period(20,24));
 
-        Rate r = new Rate(CarParkKind.STUDENT, new BigDecimal(5), new BigDecimal(2), reducedPeriods, normalPeriods);
+        Rate r = new Rate(new StudentRate(), new BigDecimal(5), new BigDecimal(2), reducedPeriods, normalPeriods);
 
         assertThrows(IllegalArgumentException.class, ()-> r.calculate(new Period(24,13)));
     }
@@ -220,7 +220,7 @@ class TremblayBenjaminTestTask3 {
         reducedPeriods.add(new Period(10,17));
         reducedPeriods.add(new Period(20,24));
 
-        Rate r = new Rate(CarParkKind.STUDENT, new BigDecimal(5), new BigDecimal(2), reducedPeriods, normalPeriods);
+        Rate r = new Rate(new StudentRate(), new BigDecimal(5), new BigDecimal(2), reducedPeriods, normalPeriods);
 
         assertEquals(new BigDecimal("8.88"), r.calculate(new Period(0,9)));
     }
@@ -234,7 +234,7 @@ class TremblayBenjaminTestTask3 {
         reducedPeriods.add(new Period(10,17));
         reducedPeriods.add(new Period(20,24));
 
-        Rate r = new Rate(CarParkKind.STUDENT, new BigDecimal(5), new BigDecimal(2), reducedPeriods, normalPeriods);
+        Rate r = new Rate(new StudentRate(), new BigDecimal(5), new BigDecimal(2), reducedPeriods, normalPeriods);
 
         assertThrows(IllegalArgumentException.class, ()-> r.calculate(new Period(-1,20)));
     }
@@ -248,7 +248,7 @@ class TremblayBenjaminTestTask3 {
         reducedPeriods.add(new Period(10,17));
         reducedPeriods.add(new Period(20,24));
 
-        Rate r = new Rate(CarParkKind.STUDENT, new BigDecimal(5), new BigDecimal(2), reducedPeriods, normalPeriods);
+        Rate r = new Rate(new StudentRate(), new BigDecimal(5), new BigDecimal(2), reducedPeriods, normalPeriods);
 
         assertThrows(IllegalArgumentException.class, ()-> r.calculate(new Period(25,15)));
     }
@@ -262,7 +262,7 @@ class TremblayBenjaminTestTask3 {
         reducedPeriods.add(new Period(10,17));
         reducedPeriods.add(new Period(20,24));
 
-        Rate r = new Rate(CarParkKind.STUDENT, new BigDecimal(5), new BigDecimal(2), reducedPeriods, normalPeriods);
+        Rate r = new Rate(new StudentRate(), new BigDecimal(5), new BigDecimal(2), reducedPeriods, normalPeriods);
 
         assertEquals(new BigDecimal("15.63"), r.calculate(new Period(6,12)));
     }
@@ -276,7 +276,7 @@ class TremblayBenjaminTestTask3 {
         reducedPeriods.add(new Period(10,17));
         reducedPeriods.add(new Period(20,24));
 
-        Rate r = new Rate(CarParkKind.STUDENT, new BigDecimal(5), new BigDecimal(2), reducedPeriods, normalPeriods);
+        Rate r = new Rate(new StudentRate(), new BigDecimal(5), new BigDecimal(2), reducedPeriods, normalPeriods);
 
         assertEquals(new BigDecimal("14.88"), r.calculate(new Period(18,24)));
     }
@@ -290,7 +290,7 @@ class TremblayBenjaminTestTask3 {
         reducedPeriods.add(new Period(10,17));
         reducedPeriods.add(new Period(20,24));
 
-        Rate r = new Rate(CarParkKind.STUDENT, new BigDecimal(5), new BigDecimal(2), reducedPeriods, normalPeriods);
+        Rate r = new Rate(new StudentRate(), new BigDecimal(5), new BigDecimal(2), reducedPeriods, normalPeriods);
 
         assertThrows(IllegalArgumentException.class, ()-> r.calculate(new Period(5,0)));
     }
@@ -304,7 +304,7 @@ class TremblayBenjaminTestTask3 {
         reducedPeriods.add(new Period(10,17));
         reducedPeriods.add(new Period(20,24));
 
-        Rate r = new Rate(CarParkKind.STUDENT, new BigDecimal(5), new BigDecimal(2), reducedPeriods, normalPeriods);
+        Rate r = new Rate(new StudentRate(), new BigDecimal(5), new BigDecimal(2), reducedPeriods, normalPeriods);
 
         assertThrows(IllegalArgumentException.class, ()-> r.calculate(new Period(10,-1)));
     }
@@ -318,7 +318,7 @@ class TremblayBenjaminTestTask3 {
         reducedPeriods.add(new Period(10,17));
         reducedPeriods.add(new Period(20,24));
 
-        Rate r = new Rate(CarParkKind.STUDENT, new BigDecimal(5), new BigDecimal(2), reducedPeriods, normalPeriods);
+        Rate r = new Rate(new StudentRate(), new BigDecimal(5), new BigDecimal(2), reducedPeriods, normalPeriods);
 
         assertThrows(IllegalArgumentException.class, ()-> r.calculate(new Period(19,25)));
     }
@@ -332,7 +332,7 @@ class TremblayBenjaminTestTask3 {
         reducedPeriods.add(new Period(10,17));
         reducedPeriods.add(new Period(20,24));
 
-        Rate r = new Rate(CarParkKind.STUDENT, new BigDecimal(5), new BigDecimal(2), reducedPeriods, normalPeriods);
+        Rate r = new Rate(new StudentRate(), new BigDecimal(5), new BigDecimal(2), reducedPeriods, normalPeriods);
 
         assertEquals(new BigDecimal("8.88"), r.calculate(new Period(7,9))); //
     }
@@ -346,7 +346,7 @@ class TremblayBenjaminTestTask3 {
         reducedPeriods.add(new Period(10,17));
         reducedPeriods.add(new Period(20,24));
 
-        Rate r = new Rate(CarParkKind.STUDENT, new BigDecimal(5), new BigDecimal(2), reducedPeriods, normalPeriods);
+        Rate r = new Rate(new StudentRate(), new BigDecimal(5), new BigDecimal(2), reducedPeriods, normalPeriods);
 
         assertThrows(IllegalArgumentException.class, ()-> r.calculate(new Period(7,7)));
     }
@@ -360,7 +360,7 @@ class TremblayBenjaminTestTask3 {
         reducedPeriods.add(new Period(10,17));
         reducedPeriods.add(new Period(20,24));
 
-        Rate r = new Rate(CarParkKind.STUDENT, new BigDecimal(5), new BigDecimal(2), reducedPeriods, normalPeriods);
+        Rate r = new Rate(new StudentRate(), new BigDecimal(5), new BigDecimal(2), reducedPeriods, normalPeriods);
 
         assertThrows(IllegalArgumentException.class, ()-> r.calculate(new Period(10,9)));
     }
@@ -379,7 +379,7 @@ class TremblayBenjaminTestTask3 {
         BigDecimal reducedRate = new BigDecimal(2);
 
         assertThrows(IllegalArgumentException.class, () ->
-                new Rate(CarParkKind.STUDENT, normalRate, reducedRate, reducedPeriods, normalPeriods));
+                new Rate(new StudentRate(), normalRate, reducedRate, reducedPeriods, normalPeriods));
     }
 
     @Test
@@ -393,7 +393,7 @@ class TremblayBenjaminTestTask3 {
         BigDecimal reducedRate = new BigDecimal(2);
 
         assertThrows(IllegalArgumentException.class, () ->
-                new Rate(CarParkKind.STUDENT, normalRate, reducedRate, reducedPeriods, normalPeriods));
+                new Rate(new StudentRate(), normalRate, reducedRate, reducedPeriods, normalPeriods));
     }
 
     @Test
@@ -407,7 +407,7 @@ class TremblayBenjaminTestTask3 {
         BigDecimal reducedRate = null;
 
         assertThrows(IllegalArgumentException.class, () ->
-                new Rate(CarParkKind.STUDENT, normalRate, reducedRate, reducedPeriods, normalPeriods));
+                new Rate(new StudentRate(), normalRate, reducedRate, reducedPeriods, normalPeriods));
     }
 
     @Test
@@ -421,7 +421,7 @@ class TremblayBenjaminTestTask3 {
         BigDecimal reducedRate = new BigDecimal(3);
 
         assertThrows(IllegalArgumentException.class, () ->
-                new Rate(CarParkKind.STUDENT, normalRate, reducedRate, reducedPeriods, normalPeriods));
+                new Rate(new StudentRate(), normalRate, reducedRate, reducedPeriods, normalPeriods));
     }
 
     @Test
@@ -437,7 +437,7 @@ class TremblayBenjaminTestTask3 {
         BigDecimal reducedRate = new BigDecimal(3);
 
         assertThrows(IllegalArgumentException.class, () ->
-                new Rate(CarParkKind.STUDENT, normalRate, reducedRate, reducedPeriods, normalPeriods));
+                new Rate(new StudentRate(), normalRate, reducedRate, reducedPeriods, normalPeriods));
     }
 
     @Test
@@ -453,7 +453,7 @@ class TremblayBenjaminTestTask3 {
         BigDecimal reducedRate = new BigDecimal(1);
 
         assertThrows(IllegalArgumentException.class, () ->
-                new Rate(CarParkKind.VISITOR,normalRate,reducedRate,reducedPeriods,normalPeriods));
+                new Rate(new VisitorRate(),normalRate,reducedRate,reducedPeriods,normalPeriods));
     }
     /*-------------------------------------------------------------------------------------------------
     -------------------------------------- Task 3 TDD Expanded Tests ----------------------------------
@@ -467,7 +467,7 @@ class TremblayBenjaminTestTask3 {
         reducedPeriods.add(new Period(10,17));
         reducedPeriods.add(new Period(20,24));
 
-        Rate r = new Rate(CarParkKind.VISITOR, new BigDecimal(5), new BigDecimal(2),
+        Rate r = new Rate(new VisitorRate(), new BigDecimal(5), new BigDecimal(2),
                 reducedPeriods, normalPeriods);
 
         assertEquals(BigDecimal.valueOf(4.5), r.calculate(new Period(0,12)));
@@ -482,7 +482,7 @@ class TremblayBenjaminTestTask3 {
         reducedPeriods.add(new Period(10,17));
         reducedPeriods.add(new Period(20,24));
 
-        Rate r = new Rate(CarParkKind.MANAGEMENT, new BigDecimal(5), new BigDecimal(2), reducedPeriods,
+        Rate r = new Rate(new ManagementRate(), new BigDecimal(5), new BigDecimal(2), reducedPeriods,
                 normalPeriods);
 
         assertEquals(BigDecimal.valueOf(4), r.calculate(new Period(10,11)));
@@ -497,7 +497,7 @@ class TremblayBenjaminTestTask3 {
         reducedPeriods.add(new Period(10,17));
         reducedPeriods.add(new Period(20,24));
 
-        Rate r = new Rate(CarParkKind.STUDENT, new BigDecimal(5), new BigDecimal(2), reducedPeriods,
+        Rate r = new Rate(new StudentRate(), new BigDecimal(5), new BigDecimal(2), reducedPeriods,
                 normalPeriods);
 
         assertEquals(BigDecimal.valueOf(19.38), r.calculate(new Period(8,17)));
@@ -512,7 +512,7 @@ class TremblayBenjaminTestTask3 {
         reducedPeriods.add(new Period(10,17));
         reducedPeriods.add(new Period(20,24));
 
-        Rate r = new Rate(CarParkKind.STAFF, new BigDecimal(5), new BigDecimal(2), reducedPeriods,
+        Rate r = new Rate(new StaffRate(), new BigDecimal(5), new BigDecimal(2), reducedPeriods,
                 normalPeriods);
 
         assertEquals(BigDecimal.valueOf(16), r.calculate(new Period(8,17)));
