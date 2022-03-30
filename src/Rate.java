@@ -102,12 +102,7 @@ public class Rate {
         BigDecimal charge = (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
                 this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
 
-        if (this.kind == CarParkKind.MANAGEMENT){
-            if(charge.compareTo(BigDecimal.valueOf(4)) < 0){
-                charge = BigDecimal.valueOf(4);
-            }
-        }
-        else if (this.kind == CarParkKind.STUDENT){
+        if (this.kind == CarParkKind.STUDENT){
             if(charge.compareTo(BigDecimal.valueOf(5.5)) > 0){
                 BigDecimal amtAbove = charge.subtract(BigDecimal.valueOf(5.5));
                 // Subtract 25% of amount above 5.50

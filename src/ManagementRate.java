@@ -11,6 +11,9 @@ public class ManagementRate implements IRateStrategy{
      */
     @Override
     public BigDecimal applyRate(BigDecimal cost) {
-        return null;
+        if(cost.compareTo(BigDecimal.valueOf(4)) < 0){
+            cost = BigDecimal.valueOf(4);
+        }
+        return cost;
     }
 }
