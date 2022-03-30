@@ -11,6 +11,10 @@ public class StaffRate implements IRateStrategy{
      */
     @Override
     public BigDecimal applyRate(BigDecimal cost) {
-        return null;
+        if(cost.compareTo(BigDecimal.valueOf(16)) > 0){
+            // Sets charge to maximum value of 16
+            cost = BigDecimal.valueOf(16);
+        }
+        return cost;
     }
 }

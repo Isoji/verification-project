@@ -99,15 +99,9 @@ public class Rate {
         int normalRateHours = periodStay.occurences(normal);
         int reducedRateHours = periodStay.occurences(reduced);
 
-        BigDecimal charge = (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
+        BigDecimal cost = (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
                 this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
 
-        if (this.kind == CarParkKind.STAFF){
-            if(charge.compareTo(BigDecimal.valueOf(16)) > 0){
-                // Sets charge to maximum value of 16
-                charge = BigDecimal.valueOf(16);
-            }
-        }
-        return charge;
+        return cost;
     }
 }
