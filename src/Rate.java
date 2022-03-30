@@ -102,10 +102,7 @@ public class Rate {
         BigDecimal charge = (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
                 this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
 
-        if(this.kind == CarParkKind.VISITOR){
-            charge = charge.subtract(BigDecimal.valueOf(10)).divide(BigDecimal.valueOf(2), 1, RoundingMode.CEILING);
-        }
-        else if (this.kind == CarParkKind.MANAGEMENT){
+        if (this.kind == CarParkKind.MANAGEMENT){
             if(charge.compareTo(BigDecimal.valueOf(4)) < 0){
                 charge = BigDecimal.valueOf(4);
             }
