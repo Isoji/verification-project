@@ -91,9 +91,9 @@ public class Rate {
     }
 
     /**
-     * Calculates the charge to be paid
+     * Returns the car park fee cost for the given period of stay
      * @param periodStay the Period of stay in the car park
-     * @return the calculated charge fee as a BigDecimal
+     * @return the calculated car park cost fee with applied rate
      */
     public BigDecimal calculate(Period periodStay) {
         int normalRateHours = periodStay.occurences(normal);

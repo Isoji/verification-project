@@ -2,7 +2,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 /**
- * A visitor rate to be applied for visitor car parks
+ * A visitor rate type to be applied for visitor car parks
  */
 public class VisitorRate implements IRateStrategy{
     /**
